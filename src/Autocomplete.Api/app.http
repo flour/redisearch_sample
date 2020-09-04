@@ -1,0 +1,24 @@
+###
+POST https://localhost:5001/products/addmultiple/
+Content-Type: application/json
+
+[
+    { "id": 2, "name": "test", "price": 20.34 },
+    { "id": 3, "name": "one", "price": 20.34 },
+    { "id": 4, "name": "two", "price": 20.34 },
+    { "id": 5, "name": "three", "price": 20.34 },
+    { "id": 6, "name": "four", "price": 20.34 },
+    { "id": 7, "name": "five", "price": 20.34 },
+    { "id": 8, "name": "teste", "price": 20.34 },
+    { "id": 9, "name": "Test", "price": 20.34 }
+]
+
+###
+POST https://localhost:5001/products/addone/
+Content-Type: application/json
+
+{ "id": 1, "name": "test", "price": 20.34 }
+
+
+###
+GET https://localhost:5001/products/search/test/20
