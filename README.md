@@ -1,6 +1,6 @@
 # RediSearch sample project using ASP.NET Core
 
-In this project you may see simple mechanism of autocomplete using RediSearch. In common you fullfil some products catalog and you need to have possibility to rapidly look for products by term that user typed on clint-side. So here it is =)
+In this project you may see simple mechanism of autocomplete using RediSearch. In common you fullfil some products catalog and you need to have possibility to rapidly look for products by term that user typed on client-side. So here it is =)
 
 General purpose is to get familiar with RediSearch, but in future it may grow into something interesting
 
