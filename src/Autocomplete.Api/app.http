@@ -1,5 +1,21 @@
-###
-POST https://localhost:5001/products/addmultiple/
+### specify port - generally 5000 for loca debugging and 8080 for docker compose instance
+@port=8080
+@term=test
+
+
+### GET up to 20 results with "term"
+GET http://localhost:{{port}}/products/search/{{term}}/20
+
+
+### Add one product
+POST http://localhost:{{port}}/products/addone/
+Content-Type: application/json
+
+{ "id": 1, "name": "{{term}}", "price": 20.34 }
+
+
+### Fill with test data
+POST http://localhost:{{port}}/products/addmultiple/
 Content-Type: application/json
 
 [
@@ -12,13 +28,3 @@ Content-Type: application/json
     { "id": 8, "name": "teste", "price": 20.34 },
     { "id": 9, "name": "Test", "price": 20.34 }
 ]
-
-###
-POST https://localhost:5001/products/addone/
-Content-Type: application/json
-
-{ "id": 1, "name": "test", "price": 20.34 }
-
-
-###
-GET https://localhost:5001/products/search/test/20

@@ -19,11 +19,14 @@ namespace Autocomplete.Api.Services
         protected IDatabase Database { get; }
         protected Client Client { get; private set; }
 
-        public RedisSearcherBase(string clientName, IOptions<RedisSettings> redisOptions, ILogger logger)
+        public RedisSearcherBase(
+            string clientName, 
+            IOptions<RedisSettings> redisOptions, 
+            ILogger logger)
         {
             _logger = logger;
             var configuration = new ConfigurationOptions();
-            foreach (var hostAddress in redisOptions.Value.Hosts)
+            foreach (var hostAddress in redisOptions.Value.Hosts.Split(","))
                 configuration.EndPoints.Add(hostAddress);
             configuration.Password = redisOptions.Value.Password;
             configuration.ClientName = redisOptions.Value.ClientName;

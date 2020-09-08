@@ -10,6 +10,8 @@ namespace Autocomplete.Api
 {
     public class Program
     {
+        private const string ENV_PREFIX = "AUTOCOMPLETE_API_";
+
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -17,6 +19,10 @@ namespace Autocomplete.Api
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((context, conf) =>
+                    conf.AddJsonFile("appsettings.json", true, true)
+                        .AddJsonFile($"appsettings.{context.HostingEnvironment.EnvironmentName}.json", true, true)
+                        .AddEnvironmentVariables(ENV_PREFIX))
                 .ConfigureWebHostDefaults(webBuilder =>
                     webBuilder
                         .ConfigureServices((context, services) =>
@@ -28,7 +34,6 @@ namespace Autocomplete.Api
                         )
                         .Configure(app =>
                             app
-                                .UseHttpsRedirection()
                                 .UseRouting()
                                 .UseEndpoints(endpoints =>
                                     endpoints.MapControllers())
