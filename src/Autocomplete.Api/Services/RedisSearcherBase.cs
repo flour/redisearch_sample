@@ -26,7 +26,7 @@ namespace Autocomplete.Api.Services
         {
             _logger = logger;
             var configuration = new ConfigurationOptions();
-            foreach (var hostAddress in redisOptions.Value.Hosts.Split(","))
+            foreach (var hostAddress in redisOptions.Value.Hosts)
                 configuration.EndPoints.Add(hostAddress);
             configuration.Password = redisOptions.Value.Password;
             configuration.ClientName = redisOptions.Value.ClientName;

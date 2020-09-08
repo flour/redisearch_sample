@@ -14,7 +14,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Staging
       - ASPNETCORE_URLS=http://+:80
-      - AUTOCOMPLETE_API_RedisSettings__Hosts=redisearch:6379
+      - AUTOCOMPLETE_API_RedisSettings__Hosts__0=redisearch:6379
     networks:
       - dev
     volumes:
